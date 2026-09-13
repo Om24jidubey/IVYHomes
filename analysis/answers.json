@@ -1,0 +1,48 @@
+{
+  "total_listing_records": 3500,
+  "unique_properties": 3499,
+  "active_listings": 2792,
+  "corrupt_listing_ids": [
+    "100-6000323",
+    "100-6000338",
+    "100-6001461",
+    "100-6001475",
+    "100-6001968",
+    "100-6002071",
+    "DWE-6000010",
+    "DWE-6000627",
+    "DWE-6001015",
+    "DWE-6002663",
+    "DWE-6002846",
+    "MAG-6000014",
+    "MAG-6000453",
+    "MAG-6000527",
+    "MAG-6000631",
+    "MAG-6001135",
+    "MAG-6002834",
+    "SQU-6001477",
+    "SQU-6002204",
+    "SQU-6002405",
+    "SQU-6003044",
+    "ZER-6000468",
+    "ZER-6000669",
+    "ZER-6001341"
+  ],
+  "fake_listing_ids": [
+    "100-6000114",
+    "100-6001818",
+    "DWE-6002709",
+    "SQU-6001596",
+    "SQU-6001989",
+    "ZER-6000608"
+  ],
+  "total_monthly_rent": 5457800,
+  "avg_price_per_sqft_2bhk": 14207.58,
+  "costliest_project": {
+    "project_id": "P60090",
+    "price_max_inr": 989000000
+  },
+  "listings_last_7_days": 129,
+  "projects_with_wrong_listing_count": 106,
+  "dataset_audit_ref": "IVY-AUDIT-B4459693"
+}

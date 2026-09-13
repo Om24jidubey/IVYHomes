@@ -1,0 +1,38 @@
+[
+  {
+    "endpoint": "*",
+    "category": "auth",
+    "documented": "Append it as a query parameter: ?api_key=...",
+    "actual": "Server rejects query parameter with 401: \"send your key in the X-API-Key request header, not as a query parameter\"",
+    "how_found": "Attempted to fetch with api_key query parameter as documented and received 401 error message.",
+    "impact": "Must use X-API-Key header for all requests.",
+    "evidence": []
+  },
+  {
+    "endpoint": "/auth/login",
+    "category": "auth",
+    "documented": "Returns `token` valid for 24 hours (86400). \"There is no refresh flow.\"",
+    "actual": "Returns `access_token` valid for 15 mins (900), plus a `refresh_token` and `refresh_url: \"/auth/refresh\"`.",
+    "how_found": "Inspected /auth/login response payload.",
+    "impact": "Must use `access_token` and implement token refresh.",
+    "evidence": []
+  },
+  {
+    "endpoint": "/health",
+    "category": "timestamps",
+    "documented": "returns service status and the server clock",
+    "actual": "it does, and the clock carries an explicit +05:30 offset. This means \"Z\" on posted_at is actually IST masked as UTC.",
+    "how_found": "called /health and inspected the clock format.",
+    "impact": "Must treat all timestamps from the API as IST, ignoring the \"Z\".",
+    "evidence": []
+  },
+  {
+    "endpoint": "/v1/listings",
+    "category": "sorting",
+    "documented": "sort_by and order sort the results",
+    "actual": "Server silently ignores sorting parameters. The returned order is unstable or not sorted by the requested field.",
+    "how_found": "Sent a sort request (sort_by=price, order=asc) and verified the returned order.",
+    "impact": "Must sort entirely client-side.",
+    "evidence": []
+  }
+]

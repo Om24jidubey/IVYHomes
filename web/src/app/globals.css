@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7F8FC;
+  --foreground: #1E1B3A;
+}
+
+@theme {
+  --color-canvas: #F7F8FC;
+  --color-surface: #FFFFFF;
+  --color-ink: #1E1B3A;
+  --color-ink-soft: #4B4770;
+  --color-ink-faint: #8A87A8;
+  --color-indigo-50: #EEF2FF;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-400: #6366F1;
+  --color-indigo-600: #4338CA;
+  --color-indigo-700: #312E81;
+  --color-rose-50: #FDF2F8;
+  --color-rose-100: #FCE7F3;
+  --color-rose-400: #FB7185;
+  --color-rose-600: #E11D48;
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-500: #10B981;
+  --color-emerald-700: #047857;
+  --color-amber-50: #FFFBEB;
+  --color-amber-500: #F59E0B;
+  --color-amber-700: #B45309;
+  --color-line: #E7E5F5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.bg-dawn-wash {
+  background-image: linear-gradient(135deg, #EEF2FF 0%, #F7F8FC 45%, #FDF2F8 100%);
+}
+
+.bg-dawn-hero {
+  background-image: linear-gradient(120deg, #4338CA 0%, #6366F1 45%, #FB7185 120%);
+}
+
+.bg-mesh {
+  background-color: #F7F8FC;
+  background-image:
+    radial-gradient(at 15% 20%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 10%, rgba(251, 113, 133, 0.16) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(99, 102, 241, 0.10) 0px, transparent 50%);
+}
+
+.text-gradient {
+  background-image: linear-gradient(120deg, #4338CA 0%, #6366F1 50%, #FB7185 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(30, 27, 58, 0.04);
+}
+
+.shadow-lifted {
+  box-shadow: 0 12px 32px -12px rgba(49, 46, 129, 0.25);
+}
