@@ -37,6 +37,7 @@ export async function proxyRequest(request: NextRequest, endpoint: string) {
   let res = await fetch(upstreamUrl, {
     method: request.method,
     headers,
+    cache: 'no-store',
     ...(reqBody !== undefined && { body: reqBody })
   });
 
@@ -64,6 +65,7 @@ export async function proxyRequest(request: NextRequest, endpoint: string) {
       res = await fetch(upstreamUrl, {
         method: request.method,
         headers,
+        cache: 'no-store',
         ...(reqBody !== undefined && { body: reqBody })
       });
     }

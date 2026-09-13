@@ -50,7 +50,9 @@ export default function Navbar() {
 
         <button
           onClick={() => {
-            fetch('/api/auth/logout', { method: 'POST' }).then(() => router.push('/login'));
+            fetch('/api/auth/logout', { method: 'POST' }).then(() => {
+              window.location.href = '/login';
+            });
           }}
           className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-rose-400 hover:text-rose-600 cursor-pointer"
         >
