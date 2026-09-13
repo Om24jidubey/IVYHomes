@@ -23,8 +23,26 @@ export default function Saved() {
   const { data: allListingsData, isLoading: listingsLoading } = useQuery({
     queryKey: ['listings-all'],
     queryFn: async () => {
-      const res = await fetch('/api/listings/all');
-      return res.json();
+      const firstRes = await fetch('/api/listings?offset=0&limit=50');
+      if (firstRes.status === 401) throw new Error('401');
+      const firstData = await firstRes.json();
+      
+      const total = firstData.total || 0;
+      let allResults = [...(firstData.results || [])];
+      
+      const promises = [];
+      for (let offset = 50; offset < total; offset += 50) {
+        promises.push(
+          fetch(`/api/listings?offset=${offset}&limit=50`).then(res => res.json())
+        );
+      }
+      
+      const remainingPages = await Promise.all(promises);
+      remainingPages.forEach(page => {
+        if (page.results) allResults.push(...page.results);
+      });
+      
+      return { results: allResults };
     }
   });
 
